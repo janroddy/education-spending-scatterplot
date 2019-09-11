@@ -1,4 +1,8 @@
 
+#mydata_viz{
+	font-family: optima;
+	font-size: 30px;
+}
 .bubbles {
   stroke-width: 1px;
   stroke: black;

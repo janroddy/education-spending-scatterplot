@@ -1,7 +1,7 @@
 // set the dimensions and margins of the graph
 var margin = {top: 70, right: 150, bottom: 60, left: 50},
-    width = 700 - margin.left - margin.right,
-    height = 520 - margin.top - margin.bottom;
+    width = 1000 - margin.left - margin.right,
+    height = 800 - margin.top - margin.bottom;
 
 // append the svg object to the body of the page
 var svg = d3.select("#my_dataviz")
@@ -31,8 +31,10 @@ d3.json("gender-data.json", function(data) {
   // Add X axis label:
   svg.append("text")
       .attr("text-anchor", "end")
+      .style("font-size", "24px")
       .attr("x", width)
       .attr("y", height+50 )
+      .style("font-family", "optima")
       .text("Proportion of Seats Held by Women in National Legislatures (%)");
 
   // Add Y axis
@@ -45,6 +47,8 @@ d3.json("gender-data.json", function(data) {
   // Add Y axis label:
   svg.append("text")
       .attr("text-anchor", "end")
+      .style("font-size", "24px")
+      .style("font-family", "optima")
       .attr("x", 0)
       .attr("y", -20 )
       .text("Government Expenditure of Education (% of GDP)")
