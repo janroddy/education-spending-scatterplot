@@ -125,7 +125,6 @@ d3.json("gender-data.json", function(data) {
   // ---------------------------//
   //       HIGHLIGHT GROUP      //
   // ---------------------------//
-
   // What to do when one group is hovered
   var highlight = function(d){
     // reduce opacity of all groups
@@ -133,7 +132,6 @@ d3.json("gender-data.json", function(data) {
     // expect the one that is hovered
     d3.selectAll("."+d).style("opacity", 1)
   }
-
   // And when it is not hovered anymore
   var noHighlight = function(d){
     d3.selectAll(".bubbles").style("opacity", 1)
@@ -180,7 +178,6 @@ d3.json("gender-data.json", function(data) {
         .attr("r", function(d){ return z(d) })
         .style("fill", "none")
         .attr("stroke", "black")
-
     // Add legend: segments
     svg
       .selectAll("legend")
@@ -193,7 +190,6 @@ d3.json("gender-data.json", function(data) {
         .attr('y2', function(d){ return height - 100 - z(d) } )
         .attr('stroke', 'black')
         .style('stroke-dasharray', ('2,2'))
-
     // Add legend: labels
     svg
       .selectAll("legend")
@@ -205,14 +201,12 @@ d3.json("gender-data.json", function(data) {
         .text( function(d){ return d/1000000 } )
         .style("font-size", 10)
         .attr('alignment-baseline', 'middle')
-
     // Legend title
     svg.append("text")
       .attr('x', xCircle)
       .attr("y", height - 100 +30)
       .text("GDP per Capita")
       .attr("text-anchor", "middle")
-
     // Add one dot in the legend for each name.
     var size = 20
     var allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
@@ -226,7 +220,6 @@ d3.json("gender-data.json", function(data) {
         .style("fill", function(d){ return myColor(d)})
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
-
     // Add labels beside legend dots
     svg.selectAll("mylabels")
       .data(allgroups)
