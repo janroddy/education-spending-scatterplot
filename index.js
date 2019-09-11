@@ -143,7 +143,7 @@ d3.json("gender-data.json", function(data) {
     .append("circle")
       .attr("class", function(d) { return "bubbles " + d.region })
       .attr("cx", function (d) { return x(d.govSeat2016); } )
-      .attr("cy", function (d) { console.log(d.govEduExp2016); return y(d.govEduExp2016); } )
+      .attr("cy", function (d) { return y(d.govEduExp2016); } )
       .attr("r", function (d) { return z(d.GDPperCap2016); } )
       .style("fill", function (d) { return myColor(d.region); } )
     // -3- Trigger the functions for hover
