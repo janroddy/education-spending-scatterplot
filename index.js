@@ -95,7 +95,8 @@ d3.json("gender-data.json", function(data) {
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Country: " + d.Country)
+      .html("country: " + d.country)
+      //.html("Region: " + d.region)
       .style("left", (d3.mouse(this)[0]+30) + "px")
       .style("top", (d3.mouse(this)[1]+30) + "px")
   }
