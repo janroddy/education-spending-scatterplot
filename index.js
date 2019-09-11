@@ -56,7 +56,7 @@ d3.json("gender-data.json", function(data) {
     .range([ 2, 18]);
 
   // Add a scale for bubble color
-  var myColor =d3.scaleOrdinal(d3.schemeAccent) 
+  var myColor =d3.scaleOrdinal() 
     .domain([
     "East Asia & Pacific", 
     "South Asia", 
@@ -66,7 +66,7 @@ d3.json("gender-data.json", function(data) {
     "North America",
     "Latin America & Caribbean"
     ])
-    .range(d3.schemeSet1);
+    .range(d3.schemePaired);
 
   //remove empty GovEduExp2016 data points 
   
