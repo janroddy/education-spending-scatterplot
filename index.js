@@ -179,8 +179,8 @@ d3.json("gender-data.json", function(data) {
 
     // Add legend: circles
     var valuesToShow = [1000, 1000, 1000]
-    var xCircle = 390
-    var xLabel = 440
+    var xCircle = 700
+    var xLabel = 650
     svg
       .selectAll("legend")
       .data(valuesToShow)
@@ -221,6 +221,8 @@ d3.json("gender-data.json", function(data) {
     svg.append("text")
       .attr('x', xCircle)
       .attr("y", height - 100 +30)
+      .style("font-size", "20px")
+      .style("font-family", "optima")
       .text("GDP per Capita")
       .attr("text-anchor", "middle")
 
