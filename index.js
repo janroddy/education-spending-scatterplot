@@ -72,6 +72,12 @@ d3.json("gender-data.json", function(data) {
     if(data[i].govEduExp2016 === '..'){
       data.splice(i--,1);
     }
+    if(data[i].region === ''){
+      data.splice(i--,1);
+    } 
+    if(data[i].govSeat2016 === ''){
+      data.splice(i--,1);
+    }  
   }
   
   // ---------------------------//
@@ -95,10 +101,12 @@ d3.json("gender-data.json", function(data) {
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("country: " + d.country)
-      //.html("Region: " + d.region)
+      .html("Region: " + d.region + "<br/>" +
+        "Country: " + d.country + "<br/>" +
+        "% Female of Legislature: " + d.govSeat2016)
       .style("left", (d3.mouse(this)[0]+30) + "px")
       .style("top", (d3.mouse(this)[1]+30) + "px")
+      
   }
   var moveTooltip = function(d) {
     tooltip
