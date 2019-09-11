@@ -249,7 +249,7 @@ d3.json("gender-data.json", function(data) {
       .append("text")
         .attr("x", 390 + size*.8)
         .attr("y", function(d,i){ return i * (size + 5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
-        .style("fill", function(d){ return myColor(d)})
+       // .style("fill", function(d){ return myColor(d)})
         .text(function(d){ return d})
         .attr("text-anchor", "left")
         .style("alignment-baseline", "middle")
