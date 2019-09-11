@@ -47,7 +47,7 @@ d3.json("gender-data.json", function(data) {
       .attr("text-anchor", "end")
       .attr("x", 0)
       .attr("y", -20 )
-      .text("Government Expenditure of Education (% of GDP)!")
+      .text("Government Expenditure of Education (% of GDP)")
       .attr("text-anchor", "start")
 
   // Add a scale for bubble size

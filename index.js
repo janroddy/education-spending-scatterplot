@@ -19,7 +19,8 @@ d3.json("gender-data.json", function(data) {
   //       AXIS  AND SCALE      //
   // ---------------------------//sub
 
-  // Add X axis
+  // Add X axis    .attr("transform",
+
   var x = d3.scaleLinear()
     .domain([0, 75])
     .range([ 0, width ]);
@@ -68,6 +69,7 @@ d3.json("gender-data.json", function(data) {
     .range(d3.schemeSet1);
 
   //remove empty GovEduExp2016 data points 
+  
   for(i=0;i<data.length;i++){
     if(data[i].govEduExp2016 === '..'){
       data.splice(i--,1);
@@ -75,10 +77,12 @@ d3.json("gender-data.json", function(data) {
     if(data[i].region === ''){
       data.splice(i--,1);
     } 
-    if(data[i].govSeat2016 === ''){
+    if(data[i].govSeat2016 === '..'){
       data.splice(i--,1);
     }  
+    console.log("country included: " + data[i].country);
   }
+  
   
   // ---------------------------//
   //      TOOLTIP               //
@@ -101,9 +105,12 @@ d3.json("gender-data.json", function(data) {
       .duration(200)
     tooltip
       .style("opacity", 1)
-      .html("Region: " + d.region + "<br/>" +
-        "Country: " + d.country + "<br/>" +
-        "% Female of Legislature: " + d.govSeat2016)
+      .html("Country: " + d.country + "<br/>" +
+        "Region: " + d.region + "<br/>" +
+        "Education Expenditure (%GDP): " + d.govEduExp2016 + "<br/>" +
+        "% Female of Legislature: " + d.govSeat2016  + "<br/>" +
+        "GDP per Capita: " + d.GDPperCap2016  
+        )
       .style("left", (d3.mouse(this)[0]+30) + "px")
       .style("top", (d3.mouse(this)[1]+30) + "px")
       
@@ -121,22 +128,24 @@ d3.json("gender-data.json", function(data) {
   }
 
 
-/*
+
   // ---------------------------//
   //       HIGHLIGHT GROUP      //
   // ---------------------------//
+
   // What to do when one group is hovered
   var highlight = function(d){
     // reduce opacity of all groups
     d3.selectAll(".bubbles").style("opacity", .05)
     // expect the one that is hovered
-    d3.selectAll("."+d).style("opacity", 1)
+    d3.selectAll("."+d).style("opacity", 2)
   }
+
   // And when it is not hovered anymore
   var noHighlight = function(d){
     d3.selectAll(".bubbles").style("opacity", 1)
   }
-*/
+
 
   // ---------------------------//
   //       CIRCLES              //
@@ -163,9 +172,9 @@ d3.json("gender-data.json", function(data) {
     // ---------------------------//
     //       LEGEND              //
     // ---------------------------//
-/*
+
     // Add legend: circles
-    var valuesToShow = [10000000, 100000000, 1000000000]
+    var valuesToShow = [1000, 1000, 1000]
     var xCircle = 390
     var xLabel = 440
     svg
@@ -178,6 +187,7 @@ d3.json("gender-data.json", function(data) {
         .attr("r", function(d){ return z(d) })
         .style("fill", "none")
         .attr("stroke", "black")
+
     // Add legend: segments
     svg
       .selectAll("legend")
@@ -190,6 +200,7 @@ d3.json("gender-data.json", function(data) {
         .attr('y2', function(d){ return height - 100 - z(d) } )
         .attr('stroke', 'black')
         .style('stroke-dasharray', ('2,2'))
+
     // Add legend: labels
     svg
       .selectAll("legend")
@@ -201,15 +212,25 @@ d3.json("gender-data.json", function(data) {
         .text( function(d){ return d/1000000 } )
         .style("font-size", 10)
         .attr('alignment-baseline', 'middle')
+
     // Legend title
     svg.append("text")
       .attr('x', xCircle)
       .attr("y", height - 100 +30)
       .text("GDP per Capita")
       .attr("text-anchor", "middle")
+
     // Add one dot in the legend for each name.
     var size = 20
-    var allgroups = ["Asia", "Europe", "Americas", "Africa", "Oceania"]
+    var allgroups = [
+    "East Asia & Pacific", 
+    "South Asia", 
+    "Europe & Central Asia", 
+    "Middle East & North Africa", 
+    "Sub-Saharan Africa", 
+    "North America",
+    "Latin America & Caribbean"
+    ]
     svg.selectAll("myrect")
       .data(allgroups)
       .enter()
@@ -220,6 +241,7 @@ d3.json("gender-data.json", function(data) {
         .style("fill", function(d){ return myColor(d)})
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
+
     // Add labels beside legend dots
     svg.selectAll("mylabels")
       .data(allgroups)
@@ -233,5 +255,7 @@ d3.json("gender-data.json", function(data) {
         .style("alignment-baseline", "middle")
         .on("mouseover", highlight)
         .on("mouseleave", noHighlight)
-        */
+    
+
   })
+  
