@@ -22,7 +22,7 @@ d3.json("gender-data.json", function(data) {
   // Add X axis    .attr("transform",
 
   var x = d3.scaleLinear()
-    .domain([0, 75])
+    .domain([0, 80])
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
@@ -56,7 +56,7 @@ d3.json("gender-data.json", function(data) {
     .range([ 2, 18]);
 
   // Add a scale for bubble color
-  var myColor =d3.scaleOrdinal() 
+  var myColor =d3.scaleOrdinal(d3.schemeAccent) 
     .domain([
     "East Asia & Pacific", 
     "South Asia", 
@@ -80,7 +80,7 @@ d3.json("gender-data.json", function(data) {
     if(data[i].govSeat2016 === '..'){
       data.splice(i--,1);
     }  
-    console.log("country included: " + data[i].country);
+    console.log("country included: " + data[i].country); //=========testing purposes REMOVE ME
   }
   
   
@@ -93,10 +93,10 @@ d3.json("gender-data.json", function(data) {
     .append("div")
       .style("opacity", 0)
       .attr("class", "tooltip")
-      .style("background-color", "black")
+      .style("background-color", "#ded8e3")
       .style("border-radius", "5px")
       .style("padding", "10px")
-      .style("color", "white")
+      .style("color", "black")
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   var showTooltip = function(d) {
