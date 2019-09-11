@@ -178,7 +178,7 @@ d3.json("gender-data.json", function(data) {
     // ---------------------------//
 
     // Add legend: circles
-    var valuesToShow = [1000, 1000, 1000]
+    var valuesToShow = [100, 1000, 10000, 100000]
     var xCircle = 700
     var xLabel = 650
     svg
@@ -211,10 +211,10 @@ d3.json("gender-data.json", function(data) {
       .data(valuesToShow)
       .enter()
       .append("text")
-        .attr('x', xLabel)
+        .attr('x', xLabel - 25)
         .attr('y', function(d){ return height - 100 - z(d) } )
-        .text( function(d){ return d/1000000 } )
-        .style("font-size", 10)
+        .text( function(d){ return d } )
+        .style("font-size", 12)
         .attr('alignment-baseline', 'middle')
 
     // Legend title
