@@ -102,7 +102,7 @@ d3.json("gender-data.json", function(data) {
     if(data[i].govSeat2016 === '..'){
       data.splice(i--,1);
     }  
-    console.log("country included: " + data[i].country); //=========testing purposes REMOVE ME
+   // console.log("country included: " + data[i].country); //=========testing purposes REMOVE ME
   }
   
   
@@ -160,12 +160,12 @@ d3.json("gender-data.json", function(data) {
     // reduce opacity of all groups
     d3.selectAll(".bubbles").style("opacity", .05)
     // expect the one that is hovered
-    d3.selectAll("."+d).style("opacity", 2)
+    d3.selectAll("."+d.region).style("opacity", 1)
   }
 
   // And when it is not hovered anymore
   var noHighlight = function(d){
-    d3.selectAll(".bubbles").style("opacity", 1)
+    d3.selectAll(".bubbles").style("opacity", .8)
   }
 
 
@@ -264,8 +264,8 @@ d3.json("gender-data.json", function(data) {
         .attr("cy", function(d,i){ return 10 + i*(size+5)}) // 100 is where the first dot appears. 25 is the distance between dots
         .attr("r", 7)
         .style("fill", function(d){ return myColor(d)})
-        .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)
+      //  .on("mouseover", highlight)
+      //  .on("mouseleave", noHighlight)
 
     // Add labels beside legend dots
     svg.selectAll("mylabels")
@@ -279,8 +279,8 @@ d3.json("gender-data.json", function(data) {
         .style("alignment-baseline", "middle")
         .style("font-family", "optima")
         .style("font-size", "20px")
-        .on("mouseover", highlight)
-        .on("mouseleave", noHighlight)
+      //  .on("mouseover", highlight)
+       // .on("mouseleave", noHighlight)
     
 
   })
