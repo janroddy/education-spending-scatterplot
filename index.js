@@ -116,7 +116,7 @@ d3.json("gender-data.json", function(data) {
       .style("opacity", 0)
       .attr("class", "tooltip")
       .style("background-color", "#ded8e3")
-      .style("border-radius", "5px")
+      .style("border-radius", "10px")
       .style("padding", "10px")
       .style("color", "black")
 
@@ -128,7 +128,7 @@ d3.json("gender-data.json", function(data) {
     tooltip
       .style("opacity", 1)
       .html("Country: " + d.country + "<br/>" +
-        "Region: " + d.region + "<br/>" +
+        "Region: "  + d.region + "<br/>" +
         "Education Expenditure (%GDP): " + d.govEduExp2016 + "<br/>" +
         "% Female of Legislature: " + d.govSeat2016  + "<br/>" +
         "GDP per Capita: " + d.GDPperCap2016  
