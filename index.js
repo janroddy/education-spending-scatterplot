@@ -56,8 +56,8 @@ d3.json("gender-data.json", function(data) {
 
   // Add a scale for bubble size
   var z = d3.scaleSqrt()
-    .domain([0, 50000])
-    .range([ 2, 18]);
+    .domain([0, 60000])
+    .range([ 2, 25]);
 
   // Add a scale for bubble color
   var myColor =d3.scaleOrdinal() 
@@ -178,7 +178,7 @@ d3.json("gender-data.json", function(data) {
     // ---------------------------//
 
     // Add legend: circles
-    var valuesToShow = [100, 1000, 10000, 100000]
+    var valuesToShow = [10000, 100000]
     var xCircle = 700
     var xLabel = 650
     svg
@@ -190,6 +190,7 @@ d3.json("gender-data.json", function(data) {
         .attr("cy", function(d){ return height - 100 - z(d) } )
         .attr("r", function(d){ return z(d) })
         .style("fill", "none")
+        .style("font-family", "optima")
         .attr("stroke", "black")
 
     // Add legend: segments
