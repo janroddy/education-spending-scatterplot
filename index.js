@@ -133,14 +133,14 @@ d3.json("gender-data.json", function(data) {
         "% Female of Legislature: " + d.govSeat2016  + "<br/>" +
         "GDP per Capita: " + d.GDPperCap2016  
         )
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (d3.mouse(this)[0]+1000) + "px")
+      .style("top", (d3.mouse(this)[1]+100) + "px")
       
   }
   var moveTooltip = function(d) {
     tooltip
-      .style("left", (d3.mouse(this)[0]+30) + "px")
-      .style("top", (d3.mouse(this)[1]+30) + "px")
+      .style("left", (d3.mouse(this)[0]+100) + "px")
+      .style("top", (d3.mouse(this)[1]+100) + "px")
   }
   var hideTooltip = function(d) {
     tooltip
