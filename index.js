@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 70, right: 150, bottom: 60, left: 50},
+var margin = {top: 70, right: 150, bottom: 60, left: 80},
     width = 1000 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
 
@@ -51,13 +51,17 @@ d3.json("gender-data.json", function(data) {
 
   // Add Y axis label:
   svg.append("text")
-      .attr("text-anchor", "end")
+      .attr("transform", "rotate(-90)")
+      .attr("y", 0 - margin.left)
+      .attr("x",0 - (height / 2))
+      .attr("dy", "1em")
+      .style("text-anchor", "middle")
       .style("font-size", "24px")
       .style("font-family", "optima")
-      .attr("x", 0)
-      .attr("y", -20 )
+     // .attr("x",  100)
+     // .attr("y", 400)
       .text("Government Expenditure of Education (% of GDP)")
-      .attr("text-anchor", "start")
+     // .attr("text-anchor", "start")
 
   // Add a scale for bubble size
   var z = d3.scaleSqrt()
@@ -261,7 +265,6 @@ d3.json("gender-data.json", function(data) {
       .append("text")
         .attr("x", 500 + size*.8)
         .attr("y", function(d,i){ return i * (size + 5) + (size/2)}) // 100 is where the first dot appears. 25 is the distance between dots
-       // .style("fill", function(d){ return myColor(d)})
         .text(function(d){ return d})
         .attr("text-anchor", "left")
         .style("alignment-baseline", "middle")
