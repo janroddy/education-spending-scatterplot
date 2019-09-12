@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 70, right: 150, bottom: 60, left: 80},
+var margin = {top: 100, right: 150, bottom: 60, left: 80},
     width = 1000 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
 
@@ -14,6 +14,15 @@ var svg = d3.select("#my_dataviz")
 
 //Read the data
 d3.json("gender-data.json", function(data) {
+
+//title text 
+  svg.append("text")
+        .attr("x", (width / 2))             
+        .attr("y", 0 - (margin.top - 120/ 2))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "24px") 
+        .style("font-family", "optima") 
+        .text("Effect of Gender Proportions in Government on Education Spending");
 
   // ---------------------------//
   //       AXIS  AND SCALE      //
@@ -34,7 +43,7 @@ d3.json("gender-data.json", function(data) {
   // Add X axis label:
   svg.append("text")
       .attr("text-anchor", "end")
-      .style("font-size", "24px")
+      .style("font-size", "20px")
       .attr("x", width)
       .attr("y", height+50 )
       .style("font-family", "optima")
@@ -56,7 +65,7 @@ d3.json("gender-data.json", function(data) {
       .attr("x",0 - (height / 2))
       .attr("dy", "1em")
       .style("text-anchor", "middle")
-      .style("font-size", "24px")
+      .style("font-size", "20px")
       .style("font-family", "optima")
      // .attr("x",  100)
      // .attr("y", 400)
