@@ -26,7 +26,10 @@ d3.json("gender-data.json", function(data) {
     .range([ 0, width ]);
   svg.append("g")
     .attr("transform", "translate(0," + height + ")")
+    .style("font-family", "optima")
+    .style("font-size", "16px")
     .call(d3.axisBottom(x).ticks(6));
+
 
   // Add X axis label:
   svg.append("text")
@@ -42,6 +45,8 @@ d3.json("gender-data.json", function(data) {
     .domain([0, 12])
     .range([ height, 0]);
   svg.append("g")
+    .style("font-family", "optima")
+    .style("font-size", "16px")
     .call(d3.axisLeft(y));
 
   // Add Y axis label:
