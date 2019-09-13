@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-var margin = {top: 100, right: 150, bottom: 60, left: 80},
+var margin = {top: 100, right: 150, bottom: 100, left: 80},
     width = 1000 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
 
@@ -22,7 +22,16 @@ d3.json("gender-data.json", function(data) {
         .attr("text-anchor", "middle")  
         .style("font-size", "24px") 
         .style("font-family", "optima") 
-        .text("Effect of Gender Proportions in Government on Education Spending");
+        .text("Effect of Gender Proportions in Government on Education Spending in 2016");
+
+//Source text 
+  svg.append("text")
+        .attr("x", (3 *(width / 4)))             
+        .attr("y", 0 - (margin.bottom - 800))
+        .attr("text-anchor", "middle")  
+        .style("font-size", "18px") 
+        .style("font-family", "times") 
+        .text("Source: World Bank Gender Statistics");        
 
   // ---------------------------//
   //       AXIS  AND SCALE      //
