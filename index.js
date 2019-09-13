@@ -140,7 +140,7 @@ d3.json("gender-data.json", function(data) {
         "Region: "  + d.region + "<br/>" +
         "Education Expenditure (%GDP): " + d.govEduExp2016 + "<br/>" +
         "% Female of Legislature: " + d.govSeat2016  + "<br/>" +
-        "GDP per Capita: " + d.GDPperCap2016  
+        "GDP per Capita: $" + d.GDPperCap2016  
         )
       .style("left", (d3.mouse(this)[0]+1000) + "px")
       .style("top", (d3.mouse(this)[1]+100) + "px")
@@ -310,18 +310,6 @@ d3.json("gender-data.json", function(data) {
     .style("stroke", "black")
     .style("opacity", ".5")
     .style("stroke-width", "2px");
-/*
 
-     svg.append("line")
-      .attr("class", "regression")
-      .datum(linearRegression(data))
-      .attr("x1", d => x(d[1][1]))
-      .attr("x2", d => x(d[1][0]))
-      .attr("y1", d => y(d[0][1]))
-      .attr("y2", d => y(d[1][1]))
-      .attr("stroke-width", 1)
-      .attr("stroke", "black");
-    
-*/
   })
   
