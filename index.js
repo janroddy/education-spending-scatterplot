@@ -131,6 +131,7 @@ d3.json("gender-data.json", function(data) {
 
   // -2- Create 3 functions to show / update (when mouse move but stay on same circle) / hide the tooltip
   var showTooltip = function(d) {
+
     tooltip
       .transition()
       .duration(200)
@@ -138,9 +139,9 @@ d3.json("gender-data.json", function(data) {
       .style("opacity", 1)
       .html("Country: " + d.country + "<br/>" +
         "Region: "  + d.region + "<br/>" +
-        "Education Expenditure (%GDP): " + d.govEduExp2016 + "<br/>" +
-        "% Female of Legislature: " + d.govSeat2016  + "<br/>" +
-        "GDP per Capita: $" + d.GDPperCap2016  
+        "Education Expenditure (%GDP): " + d.govEduExp2016.toFixed(2) + "<br/>" +
+        "% Female of Legislature: " + d.govSeat2016.toFixed(2)  + "<br/>" +
+        "GDP per Capita: $" + d.GDPperCap2016.toFixed(2)  
         )
       .style("left", (d3.mouse(this)[0]+1000) + "px")
       .style("top", (d3.mouse(this)[1]+100) + "px")
