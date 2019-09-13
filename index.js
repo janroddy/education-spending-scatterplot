@@ -290,7 +290,38 @@ d3.json("gender-data.json", function(data) {
         .style("font-size", "20px")
       //  .on("mouseover", highlight)
        // .on("mouseleave", noHighlight)
-    
 
+
+  let linearRegression = d3.regressionLinear()
+      .x((d) => d.govSeat2016)
+      .y((d) => d.govEduExp2016)
+      .domain([0, 80]);
+  
+  let res = linearRegression(data)
+      console.log(res);
+
+  let line = d3.line()
+    .x((d) => x(d[0]))
+    .y((d) => y(d[1]));
+
+  svg.append("path")
+    .datum(res)
+    .attr("d", line)
+    .style("stroke", "black")
+    .style("opacity", ".5")
+    .style("stroke-width", "2px");
+/*
+
+     svg.append("line")
+      .attr("class", "regression")
+      .datum(linearRegression(data))
+      .attr("x1", d => x(d[1][1]))
+      .attr("x2", d => x(d[1][0]))
+      .attr("y1", d => y(d[0][1]))
+      .attr("y2", d => y(d[1][1]))
+      .attr("stroke-width", 1)
+      .attr("stroke", "black");
+    
+*/
   })
   
